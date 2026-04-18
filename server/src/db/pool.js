@@ -9,6 +9,10 @@ let pool;
 let ensureDatabaseExistsPromise = null;
 let databaseExistsEnsured = false;
 
+function shouldSkipDatabaseProvisioning() {
+  return process.env.DB_SKIP_CREATE === "true" || Boolean(process.env.VERCEL);
+}
+
 function getGlobalRuntime() {
   return globalThis;
 }
@@ -35,6 +39,11 @@ function getPool() {
 
 async function ensureDatabaseExists() {
   if (databaseExistsEnsured) {
+    return;
+  }
+
+  if (shouldSkipDatabaseProvisioning()) {
+    databaseExistsEnsured = true;
     return;
   }
 

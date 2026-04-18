@@ -6,6 +6,14 @@ const path = require("path");
 const DBINFO_PATH = path.resolve(__dirname, "../../../dbinfo.txt");
 const TARGET_DATABASE_NAME = process.env.DB_NAME || "location-de-v";
 
+function normalizeMultilineValue(value) {
+  if (typeof value !== "string") {
+    return value;
+  }
+
+  return value.replace(/\\n/g, "\n").trim();
+}
+
 function readDbInfoFile() {
   if (!fs.existsSync(DBINFO_PATH)) {
     return "";
@@ -50,7 +58,9 @@ function resolveConnectionSettings() {
   const port = Number(process.env.DB_PORT || readSectionValue(content, "Port"));
   const user = process.env.DB_USER || readSectionValue(content, "User");
   const password = process.env.DB_PASSWORD || readPassword(content);
-  const ca = process.env.DB_SSL_CA || readCaCertificate(content);
+  const ca = normalizeMultilineValue(
+    process.env.DB_SSL_CA || readCaCertificate(content)
+  );
 
   if (!host || !port || !user || !password) {
     throw new Error(
