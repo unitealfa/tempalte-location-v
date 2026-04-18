@@ -1,0 +1,1077 @@
+:root {
+  --primary: #A7A7A7;
+  --primary-light: #fff0eb;
+  --white: #ffffff;
+}
+
+body,
+button,
+input,
+select,
+textarea {
+  font-family: "Muli", "Segoe UI", sans-serif;
+}
+
+.page-shell.home {
+  background: #000000;
+}
+.rentzo-home {
+  background: #000000;
+  color: #ffffff;
+}
+
+.rentzo-logo-button {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.rentzo-logo-button img {
+  display: block;
+}
+
+.vehica-hide-desktop,
+.vehica-hide-mobile,
+.vehica-hide-tablet {
+  display: block;
+}
+
+@media only screen and (min-width: 1200px) {
+  .vehica-hide-desktop {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 900px) and (max-width: 1199px) {
+  .vehica-hide-tablet {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 899px) {
+  .vehica-hide-mobile {
+    display: none;
+  }
+}
+
+.vehica-header {
+  position: relative;
+  z-index: 100;
+}
+
+.vehica-menu__desktop {
+  height: 100px;
+  background-color: #000000;
+}
+
+.vehica-menu__wrapper {
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  padding: 0 30px;
+}
+
+.vehica-menu__wrapper::before {
+  content: "";
+  position: absolute;
+  height: 1px;
+  left: 0;
+  right: 0;
+  top: 0;
+  width: 100%;
+  display: block;
+  background: #ffffff;
+  opacity: 0.12;
+  z-index: 1;
+}
+
+.vehica-menu__wrapper .vehica-logo img {
+  width: auto;
+  max-height: 60px;
+  height: 60px;
+}
+
+.vehica-menu__wrapper .vehica-logo {
+  margin-right: 73px;
+}
+
+.vehica-menu__wrapper .vehica-logo.vehica-logo--sticky {
+  display: none;
+}
+
+.vehica-menu__wrapper .vehica-menu__left {
+  display: flex;
+  align-items: center;
+}
+
+.vehica-menu__wrapper .vehica-menu__container {
+  position: relative;
+}
+
+.vehica-menu__wrapper .vehica-menu {
+  height: 100px;
+  display: flex;
+  align-items: center;
+}
+
+.vehica-menu__wrapper .vehica-menu .menu-item {
+  z-index: 2;
+  height: 100%;
+  position: relative;
+  margin: 0 25px;
+}
+
+.vehica-menu__wrapper .vehica-menu > .menu-item:first-child {
+  margin-left: 0;
+}
+
+.vehica-menu-hover {
+  height: 1px;
+  background-color: var(--primary);
+  position: absolute;
+  left: 0;
+  top: 0;
+  margin-top: 1px;
+  z-index: 10;
+  transition: all ease 0.5s;
+}
+
+.vehica-menu__wrapper .vehica-menu .vehica-menu__link {
+  transition: all ease 0.2s;
+  align-items: center;
+  height: 100%;
+  padding: 0;
+  display: flex;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.vehica-menu__wrapper .vehica-menu .menu-item:hover > .vehica-menu__link,
+.vehica-menu__wrapper .vehica-menu .menu-item.current-menu-item > .vehica-menu__link {
+  color: var(--primary);
+}
+
+.vehica-menu-sticky-active .vehica-menu__wrapper {
+  position: fixed;
+  background: #000000;
+  animation: vehica-slide-down 0.5s;
+  box-shadow: 0 2px 7px 0 rgba(196, 196, 196, 0.18);
+}
+
+.vehica-menu-sticky-active .vehica-menu__wrapper::before,
+.vehica-menu-sticky-active .vehica-menu-hover {
+  height: 0;
+}
+
+.vehica-menu-sticky-active .vehica-logo {
+  display: none;
+}
+
+.vehica-menu-sticky-active .vehica-logo.vehica-logo--sticky {
+  display: block;
+}
+
+@keyframes vehica-slide-down {
+  0% {
+    transform: translateY(-100%);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.vehica-button,
+.elementor-button {
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 17px;
+  line-height: 21px;
+  font-weight: 600;
+  text-align: center;
+  color: #ffffff;
+  border: 0;
+  box-shadow: none;
+  cursor: pointer;
+  padding: 16px 25px;
+  vertical-align: top;
+  border-radius: 10px;
+  background-color: var(--primary);
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+  position: relative;
+}
+
+.vehica-button::before,
+.elementor-button::before {
+  content: "" !important;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: scale(0, 1);
+  transform-origin: right top;
+  transition: transform 0.2s linear;
+  z-index: -1;
+}
+
+@media (min-width: 1023px) {
+  .vehica-button:hover::before,
+  .elementor-button:hover::before {
+    transform: scale(1, 1);
+    transform-origin: left top;
+  }
+}
+
+.vehica-button--menu-submit {
+  background: transparent;
+  color: #ffffff;
+  border: 1px solid var(--primary);
+  border-radius: 5px;
+  padding: 13px 25px 13px 20px;
+  line-height: 22px;
+  margin-left: 30px;
+  font-size: 16px;
+}
+
+.vehica-button--menu-submit::before {
+  display: none;
+}
+
+.vehica-button--menu-submit:hover {
+  background: var(--primary);
+}
+
+.vehica-menu__sticky-submit {
+  display: flex;
+  align-items: center;
+  padding-right: 1px;
+}
+
+.vehica-menu__sticky-submit .vehica-menu-item-depth-0 {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.rentzo-account-menu {
+  position: relative;
+}
+
+.rentzo-account-menu__plus {
+  font-size: 18px;
+  line-height: 1;
+}
+
+.rentzo-account-menu__popup {
+  position: absolute;
+  top: calc(100% + 16px);
+  right: 0;
+  min-width: 250px;
+  padding: 18px;
+  border-radius: 10px;
+  background: #ffffff;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.18);
+  display: grid;
+  gap: 10px;
+  z-index: 1100;
+}
+
+.rentzo-account-menu__identity {
+  display: grid;
+  gap: 4px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e7edf3;
+}
+
+.rentzo-account-menu__identity strong {
+  color: #0f141e;
+  font-size: 17px;
+}
+
+.rentzo-account-menu__identity span {
+  color: #99a1b2;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+}
+
+.rentzo-account-menu__action,
+.rentzo-mobile-menu__action {
+  border: 0;
+  background: #f2f5fb;
+  color: #0f141e;
+  border-radius: 10px;
+  padding: 12px 14px;
+  text-align: left;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.rentzo-account-menu__action--active,
+.rentzo-account-menu__action:hover,
+.rentzo-mobile-menu__action:hover {
+  background: var(--primary-light);
+  color: var(--primary);
+}
+
+.vehica-mobile-menu__wrapper {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 10px 15px;
+  background: #000000;
+}
+
+@media (min-width: 767px) {
+  .vehica-mobile-menu__wrapper {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+
+.vehica-mobile-menu__wrapper .vehica-mobile-menu__logo,
+.vehica-mobile-menu__wrapper .vehica-mobile-menu__hamburger {
+  height: 50px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.vehica-mobile-menu__wrapper .vehica-mobile-menu__hamburger {
+  width: 60px;
+  max-width: 60px;
+}
+
+.vehica-mobile-menu__wrapper .vehica-mobile-menu__logo {
+  text-align: right;
+}
+
+.vehica-mobile-menu__wrapper .vehica-mobile-menu__logo img {
+  height: 50px;
+  width: auto;
+}
+
+.rentzo-menu-button {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.vehica-mobile-menu__wrapper .vehica-mobile-menu__open {
+  transform: translateX(-100%);
+  transition: 0.2s all ease-out;
+  position: fixed;
+  background-color: #0f141e;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: auto;
+  z-index: 999999;
+}
+
+@media (min-width: 450px) {
+  .vehica-mobile-menu__wrapper .vehica-mobile-menu__open {
+    max-width: 400px;
+  }
+}
+
+.vehica-mobile-menu__wrapper .vehica-mobile-menu__open.vehica-active {
+  transform: translateX(0);
+}
+
+.vehica-mobile-menu__wrapper .vehica-mobile-menu__open__content {
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.vehica-mobile-menu__wrapper .vehica-mobile-menu__open .vehica-mobile-menu__open__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #242830;
+  height: 80px;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+.vehica-mobile-menu__open__top__x {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.vehica-mobile-menu__wrapper .vehica-mobile-menu__nav {
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+.vehica-mobile-menu__wrapper .vehica-mobile-menu__open .vehica-menu > .menu-item {
+  border-bottom: 1px solid #363b48;
+}
+
+.vehica-mobile-menu__wrapper .vehica-mobile-menu__open .vehica-menu .vehica-menu__link {
+  width: 100%;
+  display: block;
+  font-size: 20px;
+  font-weight: 600;
+  color: #ffffff;
+  padding: 15px 25px;
+  text-align: left;
+}
+
+.vehica-mobile-menu__wrapper .vehica-mobile-menu__open .vehica-menu > .menu-item.current-menu-item .vehica-menu__link {
+  color: var(--primary) !important;
+}
+
+.vehica-mobile-menu__wrapper .vehica-mobile-menu__open .vehica-mobile-menu__info {
+  margin-bottom: 40px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.rentzo-mobile-menu__identity {
+  display: grid;
+  gap: 4px;
+  color: #ffffff;
+  margin-bottom: 16px;
+}
+
+.rentzo-mobile-menu__identity span {
+  color: #99a1b2;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+}
+
+.rentzo-mobile-menu__account {
+  display: grid;
+  gap: 10px;
+}
+
+.vehica-mobile-menu-mask {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  border: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 999998;
+}
+
+.vehica-mobile-menu-mask--active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.rentzo-home__hero {
+  background: #000000;
+}
+
+.vehica-slider .vehica-slider__slide {
+  position: relative;
+  background-size: cover;
+  background-position: center center;
+}
+
+.vehica-slider .vehica-slider__mask-additional {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+.vehica-slider__content {
+  margin: 0 auto;
+  max-width: 1688px;
+  padding-left: 15px;
+  padding-right: 15px;
+  display: flex;
+  align-items: center;
+  min-height: 900px;
+}
+
+@media (max-width: 1199px) {
+  .vehica-slider__content {
+    min-height: 500px;
+  }
+}
+
+@media (max-width: 899px) {
+  .vehica-slider__content {
+    min-height: 260px;
+  }
+}
+
+.rentzo-home__container {
+  width: 100%;
+  max-width: 1468px;
+  margin: 0 auto;
+  padding: 0 30px;
+}
+
+.rentzo-home__intro,
+.rentzo-home__catalog {
+  background: #000000;
+}
+
+.rentzo-home__intro {
+  padding: 70px 0 100px;
+}
+
+.vehica-heading {
+  margin-bottom: 40px;
+}
+
+.vehica-heading .vehica-heading__title {
+  margin: 0;
+  font-weight: 900;
+  color: #ffffff;
+  font-size: 43px;
+  line-height: 1.09;
+  text-align: left;
+}
+
+.vehica-heading .vehica-heading__text {
+  font-size: 18px;
+  margin-top: 25px;
+  font-weight: 700;
+  line-height: 1.61;
+  max-width: 760px;
+  text-align: left;
+  color: #ffffff;
+}
+
+.vehica-heading .vehica-heading__text span {
+  background-color: var(--primary);
+  color: #ffffff;
+  padding: 0 2px;
+}
+
+.vehica-features {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.vehica-features .vehica-features__feature {
+  width: 50%;
+  display: flex;
+  margin-bottom: 40px;
+}
+
+.vehica-features .vehica-features__icon {
+  width: 73px;
+  height: 73px;
+  color: var(--primary);
+  background-color: var(--primary-light);
+  border-radius: 50%;
+  overflow: hidden;
+  font-size: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.rentzo-home__feature-icon {
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.vehica-features .vehica-features__content {
+  padding-left: 33px;
+  padding-right: 80px;
+}
+
+.vehica-features .vehica-features__label {
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 1.48;
+  color: #ffffff;
+}
+
+.vehica-features .vehica-features__text {
+  font-size: 17px;
+  line-height: 1.82;
+  color: #ffffff;
+  margin-top: 24px;
+}
+
+.rentzo-home__catalog {
+  padding: 0 0 130px;
+}
+
+.rentzo-home__catalog-title {
+  margin: 0 0 42px;
+  font-size: 45px;
+  line-height: 62px;
+  color: #ffffff;
+  font-weight: 900;
+}
+
+.rentzo-home__grid-wrap .vehica-grid__element {
+  padding-right: 32px;
+  padding-bottom: 32px;
+}
+
+.rentzo-home__grid-wrap .vehica-grid {
+  margin-right: -32px;
+}
+
+.vehica-grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.vehica-grid__element--1of4 {
+  width: 25%;
+}
+
+.vehica-car-card {
+  width: 100%;
+  min-width: 0;
+}
+
+.vehica-car-card__inner {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  background: #222732;
+  border-radius: 10px;
+  visibility: visible;
+  height: 100%;
+}
+
+@media (min-width: 1023px) {
+  .vehica-car-card__inner:hover .vehica-car-card__image img {
+    transform: scale3d(1.1, 1.1, 1);
+  }
+}
+
+.vehica-car-card__content {
+  padding: 0 22px 19px 22px;
+}
+
+.vehica-car-card__image-bg {
+  background: #eff0f1;
+  position: relative;
+}
+
+.vehica-car-card__image {
+  display: block;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.vehica-car-card__image img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 1;
+  transition: all 0.8s ease;
+}
+
+.vehica-car-card__image-info {
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.6) 8%, rgba(0, 0, 0, 0) 94%);
+  position: absolute;
+  text-align: right;
+  z-index: 2;
+  left: 0;
+  bottom: 0;
+  padding: 10px 22px;
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 25px;
+  width: 100%;
+  color: #a7a7a7;
+}
+
+.vehica-car-card__name {
+  display: block;
+  text-align: left;
+  font-size: 17px;
+  line-height: 21px;
+  margin-top: 11px;
+  margin-bottom: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #ffffff;
+}
+
+.vehica-car-card__price {
+  font-size: 20px;
+  font-weight: 800;
+  margin-bottom: 10px;
+  line-height: 24px;
+  margin-left: auto;
+  color: #ffffff;
+}
+
+.vehica-car-card__separator {
+  margin: 0 0 18px 0;
+  background: #343b4a;
+  height: 1px;
+}
+
+.vehica-car-card__info {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  overflow: hidden;
+  max-height: 28px;
+}
+
+.vehica-car-card__info__single {
+  display: inline-block;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #99a1b2;
+  margin-right: 20px;
+  line-height: 28px;
+}
+
+.vehica-car-card__info__single:first-child {
+  padding: 0 11px;
+  color: #ffffff;
+  background: var(--primary);
+}
+
+.vehica-car-card-link {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+}
+
+.rentzo-home__cta {
+  margin-top: 18px;
+}
+
+.rentzo-home__empty {
+  padding: 34px 28px;
+  border: 1px solid #343b4a;
+  border-radius: 10px;
+  color: #ffffff;
+}
+
+.rentzo-home__empty h3,
+.rentzo-home__empty p {
+  margin: 0;
+}
+
+.rentzo-home__empty p + p,
+.rentzo-home__empty h3 + p {
+  margin-top: 10px;
+}
+
+.rentzo-footer {
+  background: #000000;
+  color: #ffffff;
+}
+
+.rentzo-footer__section {
+  width: 100%;
+  max-width: 1468px;
+  margin: 0 auto;
+  padding: 50px 30px 37px;
+}
+
+.rentzo-footer__container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.rentzo-footer__column--brand {
+  width: 37.167%;
+  padding-right: 30px;
+  padding-top: 10px;
+}
+
+.rentzo-footer__column--nav {
+  width: 40.813%;
+  display: flex;
+  align-items: center;
+  padding-top: 50px;
+}
+
+.rentzo-footer__column--contact {
+  width: 21.212%;
+  padding-top: 10px;
+  display: grid;
+  gap: 16px;
+  justify-content: end;
+  text-align: right;
+}
+
+.vehica-logo-widget img {
+  max-width: 429px;
+  width: 100%;
+  height: auto;
+}
+
+.vehica-short-info {
+  width: 100%;
+  display: block;
+  color: #ffffff;
+  margin-top: 23px;
+  white-space: pre-wrap;
+  line-height: 1.7;
+}
+
+.vehica-simple-menu {
+  margin: 0 auto;
+  padding: 0;
+}
+
+.vehica-simple-menu-2-columns .vehica-simple-menu {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.vehica-simple-menu-2-columns .vehica-simple-menu > li {
+  width: 50%;
+  font-size: 17px;
+  line-height: 27px;
+  padding-bottom: 20px;
+  font-weight: 600;
+  float: left;
+  margin: 0;
+  padding-right: 15px;
+  padding-left: 20px;
+  position: relative;
+  top: -5px;
+  list-style: none;
+}
+
+.vehica-simple-menu-2-columns .vehica-simple-menu > li::after {
+  position: absolute;
+  left: 0;
+  top: 2px;
+  content: "•";
+  font-size: 12px;
+  color: var(--primary);
+}
+
+.rentzo-footer__nav-button {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #ffffff;
+  transition: 0.2s all ease;
+  cursor: pointer;
+  text-align: left;
+  font: inherit;
+}
+
+@media (min-width: 1023px) {
+  .rentzo-footer__nav-button:hover {
+    margin-left: 3px;
+    color: var(--primary) !important;
+  }
+}
+
+.vehica-phone-v2 {
+  font-size: 30px;
+  line-height: 36px;
+  font-weight: 900;
+}
+
+.vehica-phone-v2 a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.vehica-email {
+  font-size: 17px;
+  line-height: 21px;
+}
+
+.vehica-email a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.vehica-address {
+  white-space: pre-wrap;
+}
+
+.rentzo-footer__divider {
+  width: 100%;
+  height: 1px;
+  background: #3b4250;
+  margin-top: 45px;
+}
+
+.rentzo-footer__bottom {
+  padding-top: 25px;
+}
+
+.vehica-copyrights {
+  color: #ffffff;
+}
+
+@media (max-width: 1199px) {
+  .rentzo-footer__column--brand,
+  .rentzo-footer__column--nav,
+  .rentzo-footer__column--contact {
+    width: 50%;
+  }
+
+  .rentzo-footer__column--brand {
+    padding-right: 35px;
+  }
+
+  .rentzo-footer__column--contact {
+    padding-left: 35px;
+  }
+}
+
+@media (max-width: 899px) {
+  .vehica-menu__wrapper {
+    padding: 0 15px;
+  }
+
+  .rentzo-home__container,
+  .rentzo-footer__section {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .vehica-heading .vehica-heading__title {
+    font-size: 27px;
+    line-height: 38px;
+  }
+
+  .vehica-features .vehica-features__feature {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .vehica-features .vehica-features__icon {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .vehica-features .vehica-features__content {
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 20px;
+  }
+
+  .vehica-features .vehica-features__label,
+  .vehica-features .vehica-features__text {
+    text-align: center;
+  }
+
+  .rentzo-home__catalog-title {
+    font-size: 27px;
+    line-height: 38px;
+  }
+
+  .vehica-grid__element--tablet-1of2,
+  .vehica-grid__element--mobile-1of1,
+  .vehica-grid__element--1of4 {
+    width: 100%;
+  }
+
+  .rentzo-home__grid-wrap .vehica-grid__element {
+    padding-right: 0;
+  }
+
+  .rentzo-home__grid-wrap .vehica-grid {
+    margin-right: 0;
+  }
+
+  .rentzo-footer__column--brand,
+  .rentzo-footer__column--nav,
+  .rentzo-footer__column--contact {
+    width: 100%;
+    padding: 0;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .vehica-logo-widget {
+    text-align: center;
+  }
+
+  .vehica-short-info__inner {
+    max-width: 320px;
+    margin: 0 auto 20px;
+  }
+
+  .vehica-simple-menu-2-columns .vehica-simple-menu > li {
+    width: 100%;
+    padding-left: 15px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #282d3a;
+  }
+
+  .vehica-simple-menu-2-columns .vehica-simple-menu > li:last-child {
+    border-bottom: 1px solid #282d3a;
+  }
+
+  .vehica-simple-menu-2-columns .vehica-simple-menu > li::after {
+    left: auto;
+    right: 15px;
+    top: 12px;
+    content: ">";
+    font-size: 12px;
+    color: #cecfd1;
+  }
+
+  .rentzo-footer__nav-button {
+    width: 100%;
+    text-align: left;
+  }
+
+  .rentzo-footer__divider {
+    margin-top: 25px;
+  }
+
+  .rentzo-footer__bottom {
+    text-align: center;
+  }
+}
