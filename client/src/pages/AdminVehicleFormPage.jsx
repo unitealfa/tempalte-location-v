@@ -8,6 +8,7 @@ import {
 } from "../services/vehicleService";
 import { extractAcceptedFilesFromDrop, isAcceptedMediaFile } from "../utils/dropFiles";
 import { handleImageFallback } from "../utils/imageFallback";
+import { optimizeVehicleMediaForUpload } from "../utils/mediaUploadOptimizer";
 
 function buildInitialFormValues() {
   return {
@@ -318,13 +319,18 @@ function AdminVehicleFormPage({
     setErrorMessage("");
 
     try {
+      const optimizedMedia = await optimizeVehicleMediaForUpload({
+        photoFiles,
+        videoFile
+      });
+
       const payload = {
         ...formValues,
         vehicleRanges: formValues.vehicleRanges
       };
 
-      payload.photoFiles = photoFiles;
-      payload.videoFile = videoFile;
+      payload.photoFiles = optimizedMedia.photoFiles;
+      payload.videoFile = optimizedMedia.videoFile;
       payload.retainedPhotoUrls = existingPhotoUrls;
 
       const response =

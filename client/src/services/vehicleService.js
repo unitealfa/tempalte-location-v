@@ -31,11 +31,22 @@ async function parseJsonResponse(response, fallbackMessage, { publicFacing = fal
     throw createAdminUnauthorizedError();
   }
 
-  const payload = await response.json().catch(() => ({
-    message: "Reponse serveur invalide."
-  }));
+  const rawText = await response.text();
+  let payload = {};
+
+  try {
+    payload = rawText ? JSON.parse(rawText) : {};
+  } catch (error) {
+    payload = {};
+  }
 
   if (!response.ok) {
+    if (response.status === 413) {
+      throw new Error(
+        "Les medias du vehicule sont trop lourds pour Vercel. Reduisez la taille des photos ou retirez la video."
+      );
+    }
+
     const nextMessage = publicFacing
       ? normalizePublicApiErrorMessage(payload.message, fallbackMessage)
       : payload.message || fallbackMessage;
