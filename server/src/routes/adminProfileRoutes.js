@@ -9,10 +9,6 @@ const {
   requestProfileUpdateVerification,
   resendVerificationRequest
 } = require("../services/adminProfileService");
-const {
-  getDatabaseUnavailableMessage,
-  isDatabaseUnavailableError
-} = require("../utils/databaseError");
 
 const router = express.Router();
 
@@ -37,14 +33,6 @@ router.post("/update/request", async (request, response) => {
       ...result
     });
   } catch (error) {
-    if (isDatabaseUnavailableError(error)) {
-      return response.status(503).json({
-        message: getDatabaseUnavailableMessage(
-          "La mise a jour du profil est impossible pour le moment. Reessayez dans quelques instants."
-        )
-      });
-    }
-
     const statusCode =
       error.message === "Le nom d'utilisateur ou l'email est deja utilise."
         ? 409
@@ -70,14 +58,6 @@ router.post("/update/confirm", async (request, response) => {
       admin: updatedAdmin
     });
   } catch (error) {
-    if (isDatabaseUnavailableError(error)) {
-      return response.status(503).json({
-        message: getDatabaseUnavailableMessage(
-          "La confirmation de la mise a jour du profil est impossible pour le moment. Reessayez dans quelques instants."
-        )
-      });
-    }
-
     const statusCode =
       error.message === "Le nom d'utilisateur ou l'email est deja utilise."
         ? 409
@@ -102,15 +82,6 @@ router.post("/update/resend", async (request, response) => {
       ...result
     });
   } catch (error) {
-    if (isDatabaseUnavailableError(error)) {
-      return response.status(503).json({
-        message: getDatabaseUnavailableMessage(
-          "Le renvoi du code est impossible pour le moment. Reessayez dans quelques instants."
-        ),
-        retryAfterSeconds: 0
-      });
-    }
-
     const statusCode = error.retryAfterSeconds ? 429 : 400;
 
     response.status(statusCode).json({
@@ -133,14 +104,6 @@ router.post("/password/request", async (request, response) => {
       ...result
     });
   } catch (error) {
-    if (isDatabaseUnavailableError(error)) {
-      return response.status(503).json({
-        message: getDatabaseUnavailableMessage(
-          "La modification du mot de passe est impossible pour le moment. Reessayez dans quelques instants."
-        )
-      });
-    }
-
     response.status(400).json({
       message:
         error.message ||
@@ -163,14 +126,6 @@ router.post("/password/confirm", async (request, response) => {
       admin: updatedAdmin
     });
   } catch (error) {
-    if (isDatabaseUnavailableError(error)) {
-      return response.status(503).json({
-        message: getDatabaseUnavailableMessage(
-          "La confirmation du mot de passe est impossible pour le moment. Reessayez dans quelques instants."
-        )
-      });
-    }
-
     response.status(400).json({
       message:
         error.message ||
@@ -192,15 +147,6 @@ router.post("/password/resend", async (request, response) => {
       ...result
     });
   } catch (error) {
-    if (isDatabaseUnavailableError(error)) {
-      return response.status(503).json({
-        message: getDatabaseUnavailableMessage(
-          "Le renvoi du code est impossible pour le moment. Reessayez dans quelques instants."
-        ),
-        retryAfterSeconds: 0
-      });
-    }
-
     const statusCode = error.retryAfterSeconds ? 429 : 400;
 
     response.status(statusCode).json({

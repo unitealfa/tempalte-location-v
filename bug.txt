@@ -1,36 +1,425 @@
-index-H8Ptz5fj.js:42  GET https://demo-location-vehicules.vercel.app/api/admin/session 503 (Service Unavailable)
-wg @ index-H8Ptz5fj.js:42
-(anonymous) @ index-H8Ptz5fj.js:46
-(anonymous) @ index-H8Ptz5fj.js:46
-js @ index-H8Ptz5fj.js:40
-Cr @ index-H8Ptz5fj.js:40
-(anonymous) @ index-H8Ptz5fj.js:40
-j @ index-H8Ptz5fj.js:25
-q @ index-H8Ptz5fj.js:25
-postMessage
-M @ index-H8Ptz5fj.js:25
-q @ index-H8Ptz5fj.js:25
-postMessage
-M @ index-H8Ptz5fj.js:25
-J @ index-H8Ptz5fj.js:25
-e.unstable_scheduleCallback @ index-H8Ptz5fj.js:25
-Ah @ index-H8Ptz5fj.js:40
-ot @ index-H8Ptz5fj.js:40
-zt @ index-H8Ptz5fj.js:40
-bs @ index-H8Ptz5fj.js:40
-Ss.render.rc.render @ index-H8Ptz5fj.js:40
-(anonymous) @ index-H8Ptz5fj.js:46
-index-H8Ptz5fj.js:42  POST https://demo-location-vehicules.vercel.app/api/admin/login 503 (Service Unavailable)
-Ng @ index-H8Ptz5fj.js:42
-p @ index-H8Ptz5fj.js:42
-tp @ index-H8Ptz5fj.js:37
-rp @ index-H8Ptz5fj.js:37
-ap @ index-H8Ptz5fj.js:37
-ru @ index-H8Ptz5fj.js:37
-Rm @ index-H8Ptz5fj.js:37
-(anonymous) @ index-H8Ptz5fj.js:37
-Go @ index-H8Ptz5fj.js:40
-im @ index-H8Ptz5fj.js:37
-Ws @ index-H8Ptz5fj.js:37
-So @ index-H8Ptz5fj.js:37
-yp @ index-H8Ptz5fj.js:37
+api/admin/protected/dashboard?view=month&year=2026&month=3:1  Failed to load resource: the server responded with a status of 401 ()
+api/admin/protected/dashboard?view=month&year=2026&month=3:1  Failed to load resource: the server responded with a status of 401 ()
+api/admin/protected/dashboard?view=month&year=2026&month=3:1  Failed to load resource: the server responded with a status of 401 ()
+api/admin/reservations?scope=accepted:1  Failed to load resource: the server responded with a status of 401 ()
+api/admin/protected/dashboard?view=month&year=2026&month=3:1  Failed to load resource: the server responded with a status of 401 ()
+api/admin/reservations?scope=pending:1  Failed to load resource: the server responded with a status of 401 ()
+api/admin/protected/dashboard?view=month&year=2026&month=3:1  Failed to load resource: the server responded with a status of 401 ()
+index-xaRKEI4L.js:42  GET https://locationlealuxuryofficiel.vercel.app/api/admin/protected/dashboard?view=month&year=2026&month=3 401 (Unauthorized)
+ac @ index-xaRKEI4L.js:42
+ce @ index-xaRKEI4L.js:42
+le @ index-xaRKEI4L.js:42
+index-xaRKEI4L.js:42  GET https://locationlealuxuryofficiel.vercel.app/api/admin/protected/dashboard?view=month&year=2026&month=3 401 (Unauthorized)
+ac @ index-xaRKEI4L.js:42
+ce @ index-xaRKEI4L.js:42
+le @ index-xaRKEI4L.js:42
+index-xaRKEI4L.js:42  GET https://locationlealuxuryofficiel.vercel.app/api/admin/protected/visual-settings 401 (Unauthorized)
+Kh @ index-xaRKEI4L.js:42
+(anonymous) @ index-xaRKEI4L.js:44
+(anonymous) @ index-xaRKEI4L.js:44
+fs @ index-xaRKEI4L.js:40
+Lr @ index-xaRKEI4L.js:40
+Iv @ index-xaRKEI4L.js:40
+On @ index-xaRKEI4L.js:40
+Pu @ index-xaRKEI4L.js:40
+An @ index-xaRKEI4L.js:38
+(anonymous) @ index-xaRKEI4L.js:40
+index-xaRKEI4L.js:42  GET https://locationlealuxuryofficiel.vercel.app/api/admin/vehicles 401 (Unauthorized)
+rt @ index-xaRKEI4L.js:42
+(anonymous) @ index-xaRKEI4L.js:44
+(anonymous) @ index-xaRKEI4L.js:44
+fs @ index-xaRKEI4L.js:40
+Lr @ index-xaRKEI4L.js:40
+Iv @ index-xaRKEI4L.js:40
+On @ index-xaRKEI4L.js:40
+Pu @ index-xaRKEI4L.js:40
+An @ index-xaRKEI4L.js:38
+(anonymous) @ index-xaRKEI4L.js:40
+index-xaRKEI4L.js:45  GET https://locationlealuxuryofficiel.vercel.app/api/admin/reservations?scope=accepted 401 (Unauthorized)
+(anonymous) @ index-xaRKEI4L.js:45
+Dt @ index-xaRKEI4L.js:45
+(anonymous) @ index-xaRKEI4L.js:45
+Promise.then
+g @ index-xaRKEI4L.js:45
+dy @ index-xaRKEI4L.js:45
+L @ index-xaRKEI4L.js:45
+(anonymous) @ index-xaRKEI4L.js:45
+fs @ index-xaRKEI4L.js:40
+Lr @ index-xaRKEI4L.js:40
+Iv @ index-xaRKEI4L.js:40
+On @ index-xaRKEI4L.js:40
+Pu @ index-xaRKEI4L.js:40
+An @ index-xaRKEI4L.js:38
+(anonymous) @ index-xaRKEI4L.js:40
+index-xaRKEI4L.js:45  GET https://locationlealuxuryofficiel.vercel.app/api/admin/reservations?scope=pending 401 (Unauthorized)
+(anonymous) @ index-xaRKEI4L.js:45
+Dt @ index-xaRKEI4L.js:45
+(anonymous) @ index-xaRKEI4L.js:45
+Promise.then
+g @ index-xaRKEI4L.js:45
+dy @ index-xaRKEI4L.js:45
+L @ index-xaRKEI4L.js:45
+(anonymous) @ index-xaRKEI4L.js:45
+fs @ index-xaRKEI4L.js:40
+Lr @ index-xaRKEI4L.js:40
+Iv @ index-xaRKEI4L.js:40
+On @ index-xaRKEI4L.js:40
+Pu @ index-xaRKEI4L.js:40
+An @ index-xaRKEI4L.js:38
+(anonymous) @ index-xaRKEI4L.js:40
+index-xaRKEI4L.js:42  GET https://locationlealuxuryofficiel.vercel.app/api/admin/protected/dashboard?view=month&year=2026&month=3 401 (Unauthorized)
+ac @ index-xaRKEI4L.js:42
+(anonymous) @ index-xaRKEI4L.js:45
+Promise.then
+g @ index-xaRKEI4L.js:45
+dy @ index-xaRKEI4L.js:45
+L @ index-xaRKEI4L.js:45
+(anonymous) @ index-xaRKEI4L.js:45
+fs @ index-xaRKEI4L.js:40
+Lr @ index-xaRKEI4L.js:40
+Iv @ index-xaRKEI4L.js:40
+On @ index-xaRKEI4L.js:40
+Pu @ index-xaRKEI4L.js:40
+An @ index-xaRKEI4L.js:38
+(anonymous) @ index-xaRKEI4L.js:40
+index-xaRKEI4L.js:42  GET https://locationlealuxuryofficiel.vercel.app/api/admin/protected/visual-settings 401 (Unauthorized)
+Kh @ index-xaRKEI4L.js:42
+(anonymous) @ index-xaRKEI4L.js:45
+Promise.then
+g @ index-xaRKEI4L.js:45
+dy @ index-xaRKEI4L.js:45
+L @ index-xaRKEI4L.js:45
+(anonymous) @ index-xaRKEI4L.js:45
+fs @ index-xaRKEI4L.js:40
+Lr @ index-xaRKEI4L.js:40
+Iv @ index-xaRKEI4L.js:40
+On @ index-xaRKEI4L.js:40
+Pu @ index-xaRKEI4L.js:40
+An @ index-xaRKEI4L.js:38
+(anonymous) @ index-xaRKEI4L.js:40
+index-xaRKEI4L.js:42  GET https://locationlealuxuryofficiel.vercel.app/api/admin/vehicles 401 (Unauthorized)
+rt @ index-xaRKEI4L.js:42
+(anonymous) @ index-xaRKEI4L.js:45
+Promise.then
+g @ index-xaRKEI4L.js:45
+dy @ index-xaRKEI4L.js:45
+L @ index-xaRKEI4L.js:45
+(anonymous) @ index-xaRKEI4L.js:45
+fs @ index-xaRKEI4L.js:40
+Lr @ index-xaRKEI4L.js:40
+Iv @ index-xaRKEI4L.js:40
+On @ index-xaRKEI4L.js:40
+Pu @ index-xaRKEI4L.js:40
+An @ index-xaRKEI4L.js:38
+(anonymous) @ index-xaRKEI4L.js:40
+index-xaRKEI4L.js:45  GET https://locationlealuxuryofficiel.vercel.app/api/admin/reservations?scope=pending 401 (Unauthorized)
+(anonymous) @ index-xaRKEI4L.js:45
+Dt @ index-xaRKEI4L.js:45
+x @ index-xaRKEI4L.js:45
+(anonymous) @ index-xaRKEI4L.js:45
+fs @ index-xaRKEI4L.js:40
+Lr @ index-xaRKEI4L.js:40
+Iv @ index-xaRKEI4L.js:40
+On @ index-xaRKEI4L.js:40
+Pu @ index-xaRKEI4L.js:40
+An @ index-xaRKEI4L.js:38
+(anonymous) @ index-xaRKEI4L.js:40
+index-xaRKEI4L.js:42  GET https://locationlealuxuryofficiel.vercel.app/api/admin/protected/dashboard?view=month&year=2026&month=3 401 (Unauthorized)
+ac @ index-xaRKEI4L.js:42
+(anonymous) @ index-xaRKEI4L.js:45
+Promise.then
+g @ index-xaRKEI4L.js:45
+dy @ index-xaRKEI4L.js:45
+L @ index-xaRKEI4L.js:45
+(anonymous) @ index-xaRKEI4L.js:45
+fs @ index-xaRKEI4L.js:40
+Lr @ index-xaRKEI4L.js:40
+Iv @ index-xaRKEI4L.js:40
+On @ index-xaRKEI4L.js:40
+Pu @ index-xaRKEI4L.js:40
+An @ index-xaRKEI4L.js:38
+(anonymous) @ index-xaRKEI4L.js:40
+index-xaRKEI4L.js:45  GET https://locationlealuxuryofficiel.vercel.app/api/admin/reservations?scope=accepted 401 (Unauthorized)
+(anonymous) @ index-xaRKEI4L.js:45
+Dt @ index-xaRKEI4L.js:45
+x @ index-xaRKEI4L.js:45
+(anonymous) @ index-xaRKEI4L.js:45
+fs @ index-xaRKEI4L.js:40
+Lr @ index-xaRKEI4L.js:40
+Iv @ index-xaRKEI4L.js:40
+On @ index-xaRKEI4L.js:40
+Pu @ index-xaRKEI4L.js:40
+An @ index-xaRKEI4L.js:38
+(anonymous) @ index-xaRKEI4L.js:40
+index-xaRKEI4L.js:42  GET https://locationlealuxuryofficiel.vercel.app/api/admin/protected/dashboard?view=month&year=2026&month=3 401 (Unauthorized)
+ac @ index-xaRKEI4L.js:42
+(anonymous) @ index-xaRKEI4L.js:45
+Promise.then
+g @ index-xaRKEI4L.js:45
+dy @ index-xaRKEI4L.js:45
+L @ index-xaRKEI4L.js:45
+(anonymous) @ index-xaRKEI4L.js:45
+fs @ index-xaRKEI4L.js:40
+Lr @ index-xaRKEI4L.js:40
+Iv @ index-xaRKEI4L.js:40
+On @ index-xaRKEI4L.js:40
+Pu @ index-xaRKEI4L.js:40
+An @ index-xaRKEI4L.js:38
+(anonymous) @ index-xaRKEI4L.js:40
+index-xaRKEI4L.js:45  GET https://locationlealuxuryofficiel.vercel.app/api/admin/reservations?scope=pending 401 (Unauthorized)
+(anonymous) @ index-xaRKEI4L.js:45
+Dt @ index-xaRKEI4L.js:45
+(anonymous) @ index-xaRKEI4L.js:45
+Promise.then
+g @ index-xaRKEI4L.js:45
+dy @ index-xaRKEI4L.js:45
+L @ index-xaRKEI4L.js:45
+(anonymous) @ index-xaRKEI4L.js:45
+fs @ index-xaRKEI4L.js:40
+Lr @ index-xaRKEI4L.js:40
+Iv @ index-xaRKEI4L.js:40
+On @ index-xaRKEI4L.js:40
+Pu @ index-xaRKEI4L.js:40
+An @ index-xaRKEI4L.js:38
+(anonymous) @ index-xaRKEI4L.js:40
+index-xaRKEI4L.js:45  GET https://locationlealuxuryofficiel.vercel.app/api/admin/reservations?scope=accepted 401 (Unauthorized)
+(anonymous) @ index-xaRKEI4L.js:45
+Dt @ index-xaRKEI4L.js:45
+(anonymous) @ index-xaRKEI4L.js:45
+Promise.then
+g @ index-xaRKEI4L.js:45
+dy @ index-xaRKEI4L.js:45
+L @ index-xaRKEI4L.js:45
+(anonymous) @ index-xaRKEI4L.js:45
+fs @ index-xaRKEI4L.js:40
+Lr @ index-xaRKEI4L.js:40
+Iv @ index-xaRKEI4L.js:40
+On @ index-xaRKEI4L.js:40
+Pu @ index-xaRKEI4L.js:40
+An @ index-xaRKEI4L.js:38
+(anonymous) @ index-xaRKEI4L.js:40
+index-xaRKEI4L.js:42  GET https://locationlealuxuryofficiel.vercel.app/api/admin/protected/dashboard?view=month&year=2026&month=3 401 (Unauthorized)
+ac @ index-xaRKEI4L.js:42
+(anonymous) @ index-xaRKEI4L.js:45
+Promise.then
+g @ index-xaRKEI4L.js:45
+dy @ index-xaRKEI4L.js:45
+L @ index-xaRKEI4L.js:45
+(anonymous) @ index-xaRKEI4L.js:45
+fs @ index-xaRKEI4L.js:40
+Lr @ index-xaRKEI4L.js:40
+Iv @ index-xaRKEI4L.js:40
+On @ index-xaRKEI4L.js:40
+Pu @ index-xaRKEI4L.js:40
+An @ index-xaRKEI4L.js:38
+(anonymous) @ index-xaRKEI4L.js:40
+index-xaRKEI4L.js:45  GET https://locationlealuxuryofficiel.vercel.app/api/admin/reservations?scope=pending 401 (Unauthorized)
+(anonymous) @ index-xaRKEI4L.js:45
+Dt @ index-xaRKEI4L.js:45
+(anonymous) @ index-xaRKEI4L.js:45
+Promise.then
+g @ index-xaRKEI4L.js:45
+dy @ index-xaRKEI4L.js:45
+L @ index-xaRKEI4L.js:45
+(anonymous) @ index-xaRKEI4L.js:45
+fs @ index-xaRKEI4L.js:40
+Lr @ index-xaRKEI4L.js:40
+Iv @ index-xaRKEI4L.js:40
+On @ index-xaRKEI4L.js:40
+Pu @ index-xaRKEI4L.js:40
+An @ index-xaRKEI4L.js:38
+(anonymous) @ index-xaRKEI4L.js:40
+index-xaRKEI4L.js:45  GET https://locationlealuxuryofficiel.vercel.app/api/admin/reservations?scope=accepted 401 (Unauthorized)
+(anonymous) @ index-xaRKEI4L.js:45
+Dt @ index-xaRKEI4L.js:45
+(anonymous) @ index-xaRKEI4L.js:45
+Promise.then
+g @ index-xaRKEI4L.js:45
+dy @ index-xaRKEI4L.js:45
+L @ index-xaRKEI4L.js:45
+(anonymous) @ index-xaRKEI4L.js:45
+fs @ index-xaRKEI4L.js:40
+Lr @ index-xaRKEI4L.js:40
+Iv @ index-xaRKEI4L.js:40
+On @ index-xaRKEI4L.js:40
+Pu @ index-xaRKEI4L.js:40
+An @ index-xaRKEI4L.js:38
+(anonymous) @ index-xaRKEI4L.js:40
+index-xaRKEI4L.js:42  GET https://locationlealuxuryofficiel.vercel.app/api/admin/vehicles 401 (Unauthorized)
+rt @ index-xaRKEI4L.js:42
+(anonymous) @ index-xaRKEI4L.js:45
+(anonymous) @ index-xaRKEI4L.js:45
+fs @ index-xaRKEI4L.js:40
+Lr @ index-xaRKEI4L.js:40
+Iv @ index-xaRKEI4L.js:40
+On @ index-xaRKEI4L.js:40
+Pu @ index-xaRKEI4L.js:40
+An @ index-xaRKEI4L.js:38
+(anonymous) @ index-xaRKEI4L.js:40
+index-xaRKEI4L.js:45  GET https://locationlealuxuryofficiel.vercel.app/api/admin/reservations?scope=pending 401 (Unauthorized)
+(anonymous) @ index-xaRKEI4L.js:45
+Dt @ index-xaRKEI4L.js:45
+(anonymous) @ index-xaRKEI4L.js:45
+Promise.then
+g @ index-xaRKEI4L.js:45
+dy @ index-xaRKEI4L.js:45
+L @ index-xaRKEI4L.js:45
+(anonymous) @ index-xaRKEI4L.js:45
+fs @ index-xaRKEI4L.js:40
+Lr @ index-xaRKEI4L.js:40
+Iv @ index-xaRKEI4L.js:40
+On @ index-xaRKEI4L.js:40
+Pu @ index-xaRKEI4L.js:40
+An @ index-xaRKEI4L.js:38
+(anonymous) @ index-xaRKEI4L.js:40
+index-xaRKEI4L.js:42  GET https://locationlealuxuryofficiel.vercel.app/api/admin/protected/dashboard?view=month&year=2026&month=3 401 (Unauthorized)
+ac @ index-xaRKEI4L.js:42
+(anonymous) @ index-xaRKEI4L.js:45
+Promise.then
+g @ index-xaRKEI4L.js:45
+dy @ index-xaRKEI4L.js:45
+L @ index-xaRKEI4L.js:45
+(anonymous) @ index-xaRKEI4L.js:45
+fs @ index-xaRKEI4L.js:40
+Lr @ index-xaRKEI4L.js:40
+Iv @ index-xaRKEI4L.js:40
+On @ index-xaRKEI4L.js:40
+Pu @ index-xaRKEI4L.js:40
+An @ index-xaRKEI4L.js:38
+(anonymous) @ index-xaRKEI4L.js:40
+index-xaRKEI4L.js:45  GET https://locationlealuxuryofficiel.vercel.app/api/admin/reservations?scope=accepted 401 (Unauthorized)
+(anonymous) @ index-xaRKEI4L.js:45
+Dt @ index-xaRKEI4L.js:45
+(anonymous) @ index-xaRKEI4L.js:45
+Promise.then
+g @ index-xaRKEI4L.js:45
+dy @ index-xaRKEI4L.js:45
+L @ index-xaRKEI4L.js:45
+(anonymous) @ index-xaRKEI4L.js:45
+fs @ index-xaRKEI4L.js:40
+Lr @ index-xaRKEI4L.js:40
+Iv @ index-xaRKEI4L.js:40
+On @ index-xaRKEI4L.js:40
+Pu @ index-xaRKEI4L.js:40
+An @ index-xaRKEI4L.js:38
+(anonymous) @ index-xaRKEI4L.js:40
+index-xaRKEI4L.js:42  GET https://locationlealuxuryofficiel.vercel.app/api/admin/vehicles 401 (Unauthorized)
+rt @ index-xaRKEI4L.js:42
+(anonymous) @ index-xaRKEI4L.js:45
+Promise.then
+g @ index-xaRKEI4L.js:45
+dy @ index-xaRKEI4L.js:45
+L @ index-xaRKEI4L.js:45
+(anonymous) @ index-xaRKEI4L.js:45
+fs @ index-xaRKEI4L.js:40
+Lr @ index-xaRKEI4L.js:40
+Iv @ index-xaRKEI4L.js:40
+On @ index-xaRKEI4L.js:40
+Pu @ index-xaRKEI4L.js:40
+An @ index-xaRKEI4L.js:38
+(anonymous) @ index-xaRKEI4L.js:40
+index-xaRKEI4L.js:45  GET https://locationlealuxuryofficiel.vercel.app/api/admin/reservations?scope=pending 401 (Unauthorized)
+(anonymous) @ index-xaRKEI4L.js:45
+Dt @ index-xaRKEI4L.js:45
+(anonymous) @ index-xaRKEI4L.js:45
+Promise.then
+g @ index-xaRKEI4L.js:45
+dy @ index-xaRKEI4L.js:45
+L @ index-xaRKEI4L.js:45
+(anonymous) @ index-xaRKEI4L.js:45
+fs @ index-xaRKEI4L.js:40
+Lr @ index-xaRKEI4L.js:40
+Iv @ index-xaRKEI4L.js:40
+On @ index-xaRKEI4L.js:40
+Pu @ index-xaRKEI4L.js:40
+An @ index-xaRKEI4L.js:38
+(anonymous) @ index-xaRKEI4L.js:40
+index-xaRKEI4L.js:45  GET https://locationlealuxuryofficiel.vercel.app/api/admin/reservations?scope=accepted 401 (Unauthorized)
+(anonymous) @ index-xaRKEI4L.js:45
+Dt @ index-xaRKEI4L.js:45
+(anonymous) @ index-xaRKEI4L.js:45
+Promise.then
+g @ index-xaRKEI4L.js:45
+dy @ index-xaRKEI4L.js:45
+L @ index-xaRKEI4L.js:45
+(anonymous) @ index-xaRKEI4L.js:45
+fs @ index-xaRKEI4L.js:40
+Lr @ index-xaRKEI4L.js:40
+Iv @ index-xaRKEI4L.js:40
+On @ index-xaRKEI4L.js:40
+Pu @ index-xaRKEI4L.js:40
+An @ index-xaRKEI4L.js:38
+(anonymous) @ index-xaRKEI4L.js:40
+index-xaRKEI4L.js:42  GET https://locationlealuxuryofficiel.vercel.app/api/admin/protected/dashboard?view=month&year=2026&month=3 401 (Unauthorized)
+ac @ index-xaRKEI4L.js:42
+(anonymous) @ index-xaRKEI4L.js:45
+Promise.then
+g @ index-xaRKEI4L.js:45
+dy @ index-xaRKEI4L.js:45
+L @ index-xaRKEI4L.js:45
+(anonymous) @ index-xaRKEI4L.js:45
+fs @ index-xaRKEI4L.js:40
+Lr @ index-xaRKEI4L.js:40
+Iv @ index-xaRKEI4L.js:40
+On @ index-xaRKEI4L.js:40
+Pu @ index-xaRKEI4L.js:40
+An @ index-xaRKEI4L.js:38
+(anonymous) @ index-xaRKEI4L.js:40
+index-xaRKEI4L.js:42  GET https://locationlealuxuryofficiel.vercel.app/api/admin/protected/dashboard?view=month&year=2026&month=3 401 (Unauthorized)
+ac @ index-xaRKEI4L.js:42
+ce @ index-xaRKEI4L.js:42
+(anonymous) @ index-xaRKEI4L.js:42
+fs @ index-xaRKEI4L.js:40
+Lr @ index-xaRKEI4L.js:40
+Iv @ index-xaRKEI4L.js:40
+On @ index-xaRKEI4L.js:40
+Pu @ index-xaRKEI4L.js:40
+An @ index-xaRKEI4L.js:38
+(anonymous) @ index-xaRKEI4L.js:40
+index-xaRKEI4L.js:45  GET https://locationlealuxuryofficiel.vercel.app/api/admin/reservations?scope=accepted 401 (Unauthorized)
+(anonymous) @ index-xaRKEI4L.js:45
+Dt @ index-xaRKEI4L.js:45
+(anonymous) @ index-xaRKEI4L.js:45
+Promise.then
+g @ index-xaRKEI4L.js:45
+dy @ index-xaRKEI4L.js:45
+L @ index-xaRKEI4L.js:45
+(anonymous) @ index-xaRKEI4L.js:45
+fs @ index-xaRKEI4L.js:40
+Lr @ index-xaRKEI4L.js:40
+Iv @ index-xaRKEI4L.js:40
+On @ index-xaRKEI4L.js:40
+Pu @ index-xaRKEI4L.js:40
+An @ index-xaRKEI4L.js:38
+(anonymous) @ index-xaRKEI4L.js:40
+index-xaRKEI4L.js:45  GET https://locationlealuxuryofficiel.vercel.app/api/admin/reservations?scope=pending 401 (Unauthorized)
+(anonymous) @ index-xaRKEI4L.js:45
+Dt @ index-xaRKEI4L.js:45
+(anonymous) @ index-xaRKEI4L.js:45
+Promise.then
+g @ index-xaRKEI4L.js:45
+dy @ index-xaRKEI4L.js:45
+L @ index-xaRKEI4L.js:45
+(anonymous) @ index-xaRKEI4L.js:45
+fs @ index-xaRKEI4L.js:40
+Lr @ index-xaRKEI4L.js:40
+Iv @ index-xaRKEI4L.js:40
+On @ index-xaRKEI4L.js:40
+Pu @ index-xaRKEI4L.js:40
+An @ index-xaRKEI4L.js:38
+(anonymous) @ index-xaRKEI4L.js:40
+index-xaRKEI4L.js:42  GET https://locationlealuxuryofficiel.vercel.app/api/admin/protected/dashboard?view=month&year=2026&month=3 401 (Unauthorized)
+ac @ index-xaRKEI4L.js:42
+(anonymous) @ index-xaRKEI4L.js:45
+Promise.then
+g @ index-xaRKEI4L.js:45
+dy @ index-xaRKEI4L.js:45
+L @ index-xaRKEI4L.js:45
+(anonymous) @ index-xaRKEI4L.js:45
+fs @ index-xaRKEI4L.js:40
+Lr @ index-xaRKEI4L.js:40
+Iv @ index-xaRKEI4L.js:40
+On @ index-xaRKEI4L.js:40
+Pu @ index-xaRKEI4L.js:40
+An @ index-xaRKEI4L.js:38
+(anonymous) @ index-xaRKEI4L.js:40

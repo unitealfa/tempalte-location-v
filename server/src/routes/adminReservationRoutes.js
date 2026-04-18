@@ -22,20 +22,10 @@ const {
   clearResponseCacheByPrefixes,
   getOrSetResponseCache
 } = require("../services/responseCacheService");
-const {
-  getDatabaseUnavailableMessage,
-  isDatabaseUnavailableError
-} = require("../utils/databaseError");
 
 const router = express.Router();
 
 function getReservationRouteErrorMessage(error, fallbackMessage) {
-  if (isDatabaseUnavailableError(error)) {
-    return getDatabaseUnavailableMessage(
-      "La sauvegarde des reservations est impossible pour le moment. Reessayez dans quelques instants."
-    );
-  }
-
   if (error?.code === "ER_CON_COUNT_ERROR") {
     return "Le service de reservations se resynchronise. Reessayez dans quelques secondes.";
   }
@@ -76,10 +66,6 @@ router.get("/", async (request, response) => {
     return response.json({ reservations });
   } catch (error) {
     console.error("Admin reservations list failed", error);
-    if (isDatabaseUnavailableError(error)) {
-      return response.json({ reservations: [] });
-    }
-
     return response.status(400).json({
       message: getReservationRouteErrorMessage(
         error,
@@ -110,7 +96,7 @@ router.post("/", handleReservationUpload, async (request, response) => {
     await removeUploadedReservationFile(request.files);
     await removeStoredReservationFile(drivingLicensePhotoUrl);
     console.error("Admin reservation create failed", error);
-    return response.status(isDatabaseUnavailableError(error) ? 503 : 400).json({
+    return response.status(400).json({
       message: getReservationRouteErrorMessage(
         error,
         "Impossible de creer cette reservation."
@@ -145,7 +131,7 @@ router.get("/:id", async (request, response) => {
     return response.json({ reservation });
   } catch (error) {
     console.error("Admin reservation detail failed", error);
-    return response.status(isDatabaseUnavailableError(error) ? 503 : 500).json({
+    return response.status(500).json({
       message: getReservationRouteErrorMessage(
         error,
         "Impossible de charger cette reservation."
@@ -257,7 +243,7 @@ router.post("/:id/accept", async (request, response) => {
     });
   } catch (error) {
     console.error("Admin reservation accept failed", error);
-    return response.status(isDatabaseUnavailableError(error) ? 503 : 400).json({
+    return response.status(400).json({
       message: getReservationRouteErrorMessage(
         error,
         "Impossible d'accepter cette reservation."
@@ -291,7 +277,7 @@ router.post("/:id/reject", async (request, response) => {
     });
   } catch (error) {
     console.error("Admin reservation reject failed", error);
-    return response.status(isDatabaseUnavailableError(error) ? 503 : 500).json({
+    return response.status(500).json({
       message: getReservationRouteErrorMessage(
         error,
         "Impossible de refuser cette reservation."
@@ -337,7 +323,7 @@ router.put("/:id", handleReservationUpload, async (request, response) => {
     await removeUploadedReservationFile(request.files);
     await removeStoredReservationFile(drivingLicensePhotoUrl);
     console.error("Admin reservation update failed", error);
-    return response.status(isDatabaseUnavailableError(error) ? 503 : 400).json({
+    return response.status(400).json({
       message: getReservationRouteErrorMessage(
         error,
         "Impossible de modifier cette reservation."
@@ -372,7 +358,7 @@ router.delete("/:id", async (request, response) => {
     });
   } catch (error) {
     console.error("Admin reservation delete failed", error);
-    return response.status(isDatabaseUnavailableError(error) ? 503 : 500).json({
+    return response.status(500).json({
       message: getReservationRouteErrorMessage(
         error,
         "Impossible de supprimer cette reservation."

@@ -36,10 +36,6 @@ const {
 } = require("./services/databaseBootstrapService");
 const { resolveUploadsRoot } = require("./services/storagePathService");
 const { createUploadsFallbackMiddleware } = require("./middleware/uploadsFallbackMiddleware");
-const {
-  getDatabaseUnavailableMessage,
-  isDatabaseUnavailableError
-} = require("./utils/databaseError");
 
 const PORT = process.env.PORT || 4000;
 const HOST = process.env.HOST || "127.0.0.1";
@@ -95,25 +91,29 @@ async function createApp() {
   app.use("/api/content", contentRoutes);
   app.use("/api/media/branding", requireDatabaseReady, brandingMediaRoutes);
   app.use("/api/media/vehicles", requireDatabaseReady, vehicleMediaRoutes);
-  app.use("/api/vehicles", vehicleRoutes);
-  app.use("/api/admin", adminAuthRoutes);
+  app.use("/api/vehicles", requireDatabaseReady, vehicleRoutes);
+  app.use("/api/admin", requireDatabaseReady, adminAuthRoutes);
   app.use(
     "/api/admin/protected",
+    requireDatabaseReady,
     hydrateAdminRequest,
     adminProtectedRoutes
   );
   app.use(
     "/api/admin/profile",
+    requireDatabaseReady,
     hydrateAdminRequest,
     adminProfileRoutes
   );
   app.use(
     "/api/admin/vehicles",
+    requireDatabaseReady,
     hydrateAdminRequest,
     adminVehicleRoutes
   );
   app.use(
     "/api/admin/reservations",
+    requireDatabaseReady,
     hydrateAdminRequest,
     adminReservationRoutes
   );
@@ -147,12 +147,6 @@ async function createApp() {
   app.use((error, request, response, next) => {
     if (!request.path.startsWith("/api")) {
       return next(error);
-    }
-
-    if (isDatabaseUnavailableError(error)) {
-      return response.status(503).json({
-        message: getDatabaseUnavailableMessage()
-      });
     }
 
     console.error("API request failed.", error);
