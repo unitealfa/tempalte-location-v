@@ -6,12 +6,31 @@ const path = require("path");
 const DBINFO_PATH = path.resolve(__dirname, "../../../dbinfo.txt");
 const TARGET_DATABASE_NAME = process.env.DB_NAME || "location-de-v";
 
-function normalizeMultilineValue(value) {
+function normalizeScalarValue(value) {
   if (typeof value !== "string") {
     return value;
   }
 
-  return value.replace(/\\n/g, "\n").trim();
+  const trimmedValue = value.trim();
+
+  if (
+    (trimmedValue.startsWith('"') && trimmedValue.endsWith('"')) ||
+    (trimmedValue.startsWith("'") && trimmedValue.endsWith("'"))
+  ) {
+    return trimmedValue.slice(1, -1).trim();
+  }
+
+  return trimmedValue;
+}
+
+function normalizeMultilineValue(value) {
+  const normalizedValue = normalizeScalarValue(value);
+
+  if (typeof normalizedValue !== "string") {
+    return normalizedValue;
+  }
+
+  return normalizedValue.replace(/\\n/g, "\n").trim();
 }
 
 function readDbInfoFile() {
@@ -54,10 +73,20 @@ function readCaCertificate(content) {
 
 function resolveConnectionSettings() {
   const content = readDbInfoFile();
-  const host = process.env.DB_HOST || readSectionValue(content, "Host");
-  const port = Number(process.env.DB_PORT || readSectionValue(content, "Port"));
-  const user = process.env.DB_USER || readSectionValue(content, "User");
-  const password = process.env.DB_PASSWORD || readPassword(content);
+  const host = normalizeScalarValue(
+    process.env.DB_HOST || readSectionValue(content, "Host")
+  );
+  const port = Number(
+    normalizeScalarValue(
+      process.env.DB_PORT || readSectionValue(content, "Port")
+    )
+  );
+  const user = normalizeScalarValue(
+    process.env.DB_USER || readSectionValue(content, "User")
+  );
+  const password = normalizeScalarValue(
+    process.env.DB_PASSWORD || readPassword(content)
+  );
   const ca = normalizeMultilineValue(
     process.env.DB_SSL_CA || readCaCertificate(content)
   );
