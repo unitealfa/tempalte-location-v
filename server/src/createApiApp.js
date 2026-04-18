@@ -22,6 +22,10 @@ const { getTargetDatabaseName } = require("./config/databaseConfig");
 const { getRuntimeState } = require("./services/runtimeStateService");
 const { resolveUploadsRoot } = require("./services/storagePathService");
 const { createUploadsFallbackMiddleware } = require("./middleware/uploadsFallbackMiddleware");
+const {
+  getDatabaseUnavailableMessage,
+  isDatabaseUnavailableError
+} = require("./utils/databaseError");
 
 const uploadsRoot = resolveUploadsRoot();
 
@@ -88,6 +92,12 @@ function createApiApp() {
   app.use((error, request, response, next) => {
     if (!request.path.startsWith("/api")) {
       return next(error);
+    }
+
+    if (isDatabaseUnavailableError(error)) {
+      return response.status(503).json({
+        message: getDatabaseUnavailableMessage()
+      });
     }
 
     console.error("API request failed.", error);

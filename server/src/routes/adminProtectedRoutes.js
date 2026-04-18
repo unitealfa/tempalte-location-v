@@ -20,7 +20,10 @@ const {
   getOrSetResponseCache,
   clearResponseCacheByPrefixes
 } = require("../services/responseCacheService");
-const { isDatabaseUnavailableError } = require("../utils/databaseError");
+const {
+  getDatabaseUnavailableMessage,
+  isDatabaseUnavailableError
+} = require("../utils/databaseError");
 
 const router = express.Router();
 
@@ -118,6 +121,14 @@ router.post("/visual-settings/upload", handleBrandingImageUpload, async (request
       content: await getCurrentSiteContent()
     });
   } catch (error) {
+    if (isDatabaseUnavailableError(error)) {
+      return response.status(503).json({
+        message: getDatabaseUnavailableMessage(
+          "L'envoi du media est impossible pour le moment. Reessayez dans quelques instants."
+        )
+      });
+    }
+
     next(error);
   }
 });
@@ -155,6 +166,14 @@ router.put("/visual-settings", async (request, response, next) => {
       revision: payload.revision
     });
   } catch (error) {
+    if (isDatabaseUnavailableError(error)) {
+      return response.status(503).json({
+        message: getDatabaseUnavailableMessage(
+          "L'enregistrement des modifications est impossible pour le moment. Reessayez dans quelques instants."
+        )
+      });
+    }
+
     next(error);
   }
 });

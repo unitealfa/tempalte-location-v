@@ -36,6 +36,10 @@ const {
 } = require("./services/databaseBootstrapService");
 const { resolveUploadsRoot } = require("./services/storagePathService");
 const { createUploadsFallbackMiddleware } = require("./middleware/uploadsFallbackMiddleware");
+const {
+  getDatabaseUnavailableMessage,
+  isDatabaseUnavailableError
+} = require("./utils/databaseError");
 
 const PORT = process.env.PORT || 4000;
 const HOST = process.env.HOST || "127.0.0.1";
@@ -143,6 +147,12 @@ async function createApp() {
   app.use((error, request, response, next) => {
     if (!request.path.startsWith("/api")) {
       return next(error);
+    }
+
+    if (isDatabaseUnavailableError(error)) {
+      return response.status(503).json({
+        message: getDatabaseUnavailableMessage()
+      });
     }
 
     console.error("API request failed.", error);

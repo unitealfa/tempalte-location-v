@@ -70,6 +70,13 @@ function isDatabaseUnavailableError(error) {
   return false;
 }
 
+function getDatabaseUnavailableMessage(
+  fallbackMessage = "La base de donnees est actuellement inaccessible. Reessayez dans quelques instants."
+) {
+  return fallbackMessage;
+}
+
 module.exports = {
+  getDatabaseUnavailableMessage,
   isDatabaseUnavailableError
 };

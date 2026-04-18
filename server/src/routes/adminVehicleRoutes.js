@@ -18,7 +18,10 @@ const {
   updateAdminVehicle
 } = require("../services/vehicleService");
 const { clearResponseCacheByPrefixes } = require("../services/responseCacheService");
-const { isDatabaseUnavailableError } = require("../utils/databaseError");
+const {
+  getDatabaseUnavailableMessage,
+  isDatabaseUnavailableError
+} = require("../utils/databaseError");
 
 const router = express.Router();
 
@@ -94,6 +97,15 @@ router.post("/", handleVehicleMediaUpload, async (request, response) => {
       ...(uploadedMedia?.photoUrls || []),
       uploadedMedia?.videoUrl
     ]);
+
+    if (isDatabaseUnavailableError(error)) {
+      return response.status(503).json({
+        message: getDatabaseUnavailableMessage(
+          "La creation du vehicule est impossible pour le moment. Reessayez dans quelques instants."
+        )
+      });
+    }
+
     response.status(400).json({
       message: error.message || "Creation du vehicule impossible."
     });
@@ -177,6 +189,15 @@ router.put("/:id", handleVehicleMediaUpload, async (request, response) => {
       ...(uploadedMedia?.photoUrls || []),
       uploadedMedia?.videoUrl
     ]);
+
+    if (isDatabaseUnavailableError(error)) {
+      return response.status(503).json({
+        message: getDatabaseUnavailableMessage(
+          "La modification du vehicule est impossible pour le moment. Reessayez dans quelques instants."
+        )
+      });
+    }
+
     return response.status(400).json({
       message: error.message || "Modification du vehicule impossible."
     });
@@ -207,6 +228,14 @@ router.delete("/:id", async (request, response) => {
       message: "Vehicule supprime avec succes."
     });
   } catch (error) {
+    if (isDatabaseUnavailableError(error)) {
+      return response.status(503).json({
+        message: getDatabaseUnavailableMessage(
+          "La suppression du vehicule est impossible pour le moment. Reessayez dans quelques instants."
+        )
+      });
+    }
+
     return response.status(500).json({
       message: "Suppression du vehicule impossible."
     });
@@ -238,6 +267,14 @@ router.post("/:id/maintenance", async (request, response) => {
       vehicle
     });
   } catch (error) {
+    if (isDatabaseUnavailableError(error)) {
+      return response.status(503).json({
+        message: getDatabaseUnavailableMessage(
+          "Le changement de statut du vehicule est impossible pour le moment. Reessayez dans quelques instants."
+        )
+      });
+    }
+
     return response.status(500).json({
       message: "Passage en maintenance impossible."
     });
@@ -269,6 +306,14 @@ router.post("/:id/available", async (request, response) => {
       vehicle
     });
   } catch (error) {
+    if (isDatabaseUnavailableError(error)) {
+      return response.status(503).json({
+        message: getDatabaseUnavailableMessage(
+          "Le changement de statut du vehicule est impossible pour le moment. Reessayez dans quelques instants."
+        )
+      });
+    }
+
     return response.status(500).json({
       message: "Remise en disponibilite impossible."
     });
