@@ -22,6 +22,7 @@ const {
   clearResponseCacheByPrefixes,
   getOrSetResponseCache
 } = require("../services/responseCacheService");
+const { isDatabaseUnavailableError } = require("../utils/databaseError");
 
 const router = express.Router();
 
@@ -66,6 +67,10 @@ router.get("/", async (request, response) => {
     return response.json({ reservations });
   } catch (error) {
     console.error("Admin reservations list failed", error);
+    if (isDatabaseUnavailableError(error)) {
+      return response.json({ reservations: [] });
+    }
+
     return response.status(400).json({
       message: getReservationRouteErrorMessage(
         error,

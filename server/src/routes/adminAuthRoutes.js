@@ -28,9 +28,7 @@ router.post("/login", async (request, response) => {
     });
 
     if (!authenticatedSession) {
-      return response.status(401).json({
-        message: "Identifiants invalides."
-      });
+      return response.status(401).json({ message: "Mail ou mot de passe incorrect." });
     }
 
     setAdminSessionCookie(response, authenticatedSession.sessionToken);

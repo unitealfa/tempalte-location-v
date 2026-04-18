@@ -20,8 +20,77 @@ const {
   getOrSetResponseCache,
   clearResponseCacheByPrefixes
 } = require("../services/responseCacheService");
+const { isDatabaseUnavailableError } = require("../utils/databaseError");
 
 const router = express.Router();
+
+function createEmptyRequestRangeSummary() {
+  return {
+    totalRequests: 0,
+    totalClients: 0
+  };
+}
+
+function createEmptyDashboardStats(filters = {}) {
+  const today = new Date();
+  const view = ["month", "year", "all"].includes(String(filters.view || ""))
+    ? String(filters.view)
+    : "month";
+  const year = Number(filters.year) || today.getFullYear();
+  const month = Number(filters.month) || today.getMonth() + 1;
+
+  return {
+    filters: {
+      view,
+      year,
+      month,
+      availableYears: [year]
+    },
+    summary: {
+      pendingCount: 0,
+      acceptedCount: 0,
+      visibleThisMonthCount: 0,
+      totalRevenue: 0,
+      totalRequests: 0,
+      totalClients: 0,
+      vehicleCount: 0,
+      requestRanges: {
+        day: createEmptyRequestRangeSummary(),
+        week: createEmptyRequestRangeSummary(),
+        month: createEmptyRequestRangeSummary()
+      }
+    },
+    insights: {
+      topVehicle: {
+        label: "-",
+        helper: "Aucune donnee synchronisee."
+      },
+      busiestMonth: {
+        label: "-",
+        helper: "Aucune donnee synchronisee."
+      },
+      busiestWeekday: {
+        label: "-",
+        helper: "Aucune donnee synchronisee."
+      }
+    },
+    charts: {
+      requestSeries: [],
+      topVehicles: [],
+      reservationsByWeekday: [],
+      periodDistribution: [],
+      fleetStatus: []
+    }
+  };
+}
+
+function createEmptyLiveRequestRanges() {
+  return {
+    day: createEmptyRequestRangeSummary(),
+    week: createEmptyRequestRangeSummary(),
+    month: createEmptyRequestRangeSummary()
+  };
+}
 
 router.use(requireAdminApiAuth);
 
@@ -103,6 +172,13 @@ router.get("/dashboard", async (request, response, next) => {
     });
   } catch (error) {
     console.error("Dashboard error:", error);
+    if (isDatabaseUnavailableError(error)) {
+      return response.json({
+        admin: request.admin,
+        stats: createEmptyDashboardStats(request.query || {})
+      });
+    }
+
     if (error?.code === "ER_CON_COUNT_ERROR") {
       return response.status(503).json({
         message: "Le dashboard se resynchronise. Reessayez dans quelques secondes."
@@ -127,6 +203,13 @@ router.get("/dashboard/live-requests", async (request, response, next) => {
     });
   } catch (error) {
     console.error("Dashboard live request error:", error);
+    if (isDatabaseUnavailableError(error)) {
+      return response.json({
+        admin: request.admin,
+        requestRanges: createEmptyLiveRequestRanges()
+      });
+    }
+
     if (error?.code === "ER_CON_COUNT_ERROR") {
       return response.status(503).json({
         message: "Les statistiques des demandes se resynchronisent. Reessayez dans quelques secondes."

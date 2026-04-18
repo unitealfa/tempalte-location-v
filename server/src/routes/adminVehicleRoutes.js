@@ -18,6 +18,7 @@ const {
   updateAdminVehicle
 } = require("../services/vehicleService");
 const { clearResponseCacheByPrefixes } = require("../services/responseCacheService");
+const { isDatabaseUnavailableError } = require("../utils/databaseError");
 
 const router = express.Router();
 
@@ -57,7 +58,12 @@ router.get("/", async (request, response) => {
     response.json({ vehicles });
   } catch (error) {
     console.error("Admin vehicles list failed", error);
-    response.status(500).json({
+
+    if (isDatabaseUnavailableError(error)) {
+      return response.json({ vehicles: [] });
+    }
+
+    return response.status(500).json({
       message: "Impossible de charger les vehicules admin."
     });
   }

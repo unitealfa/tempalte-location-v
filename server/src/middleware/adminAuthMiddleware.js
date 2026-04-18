@@ -1,16 +1,9 @@
 const { resolveAdminFromSessionToken } = require("../services/adminAuthService");
-const { getRuntimeState } = require("../services/runtimeStateService");
 const { clearAdminSessionCookie, readAdminSessionToken } = require("../utils/sessionCookie");
+const { isDatabaseUnavailableError } = require("../utils/databaseError");
 
 async function hydrateAdminRequest(request, response, next) {
   try {
-    const runtimeState = getRuntimeState();
-
-    if (!runtimeState.database.ready) {
-      request.admin = null;
-      return next();
-    }
-
     const sessionToken = readAdminSessionToken(request);
 
     if (!sessionToken) {
@@ -29,6 +22,11 @@ async function hydrateAdminRequest(request, response, next) {
     request.admin = admin;
     return next();
   } catch (error) {
+    if (isDatabaseUnavailableError(error)) {
+      request.admin = null;
+      return next();
+    }
+
     return next(error);
   }
 }

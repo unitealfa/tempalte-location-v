@@ -13,7 +13,12 @@ const {
   getPublicVehicleById: getVehicleByPublicId,
   listPublicVehicles: listPublicVehiclesService
 } = require("../services/vehicleService");
-const { getOrSetResponseCache, clearResponseCacheByPrefixes } = require("../services/responseCacheService");
+const {
+  getOrSetResponseCache,
+  clearResponseCacheByPrefixes,
+  readResponseCache
+} = require("../services/responseCacheService");
+const { isDatabaseUnavailableError } = require("../utils/databaseError");
 
 const router = express.Router();
 
@@ -42,13 +47,25 @@ function getPublicReservationErrorMessage(error) {
 }
 
 router.get("/", async (request, response) => {
+  const cacheKey = "vehicles:public:list";
+
   try {
-    const vehicles = await getOrSetResponseCache("vehicles:public:list", 1000 * 30, async () => listPublicVehiclesService());
+    const vehicles = await getOrSetResponseCache(cacheKey, 1000 * 30, async () =>
+      listPublicVehiclesService()
+    );
     response.set("Cache-Control", "public, max-age=30, stale-while-revalidate=300");
     response.json({ vehicles });
   } catch (error) {
     console.error("Public vehicles list failed", error);
-    response.status(500).json({
+
+    if (isDatabaseUnavailableError(error)) {
+      response.set("Cache-Control", "public, max-age=10, stale-while-revalidate=60");
+      return response.json({
+        vehicles: readResponseCache(cacheKey) || []
+      });
+    }
+
+    return response.status(500).json({
       message: "Impossible de charger les vehicules."
     });
   }
@@ -94,9 +111,9 @@ router.post("/:id/reservations", handleReservationUpload, async (request, respon
 });
 
 router.get("/:id/reservation-availability", async (request, response) => {
-  try {
-    const vehicleId = parseVehicleId(request.params.id);
+  const vehicleId = parseVehicleId(request.params.id);
 
+  try {
     if (!vehicleId) {
       return response.status(400).json({
         message: "Vehicule invalide."
@@ -128,6 +145,15 @@ router.get("/:id/reservation-availability", async (request, response) => {
     return response.json(payload);
   } catch (error) {
     console.error("Vehicle reservation availability failed", error);
+
+    if (isDatabaseUnavailableError(error)) {
+      return response.json({
+        reservations: readResponseCache(
+          `vehicles:public:${vehicleId}:availability`
+        )?.reservations || []
+      });
+    }
+
     return response.status(500).json({
       message: "Impossible de charger les disponibilites de reservation."
     });
@@ -135,9 +161,9 @@ router.get("/:id/reservation-availability", async (request, response) => {
 });
 
 router.get("/:id", async (request, response) => {
-  try {
-    const vehicleId = parseVehicleId(request.params.id);
+  const vehicleId = parseVehicleId(request.params.id);
 
+  try {
     if (!vehicleId) {
       return response.status(400).json({
         message: "Vehicule invalide."
@@ -163,6 +189,21 @@ router.get("/:id", async (request, response) => {
     return response.json(payload);
   } catch (error) {
     console.error("Public vehicle detail failed", error);
+
+    if (isDatabaseUnavailableError(error)) {
+      const cachedPayload = readResponseCache(
+        `vehicles:public:${vehicleId}:detail`
+      );
+
+      if (cachedPayload) {
+        return response.json(cachedPayload);
+      }
+
+      return response.status(404).json({
+        message: "Vehicule introuvable."
+      });
+    }
+
     return response.status(500).json({
       message: "Impossible de charger ce vehicule."
     });

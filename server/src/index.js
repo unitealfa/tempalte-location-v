@@ -91,29 +91,25 @@ async function createApp() {
   app.use("/api/content", contentRoutes);
   app.use("/api/media/branding", requireDatabaseReady, brandingMediaRoutes);
   app.use("/api/media/vehicles", requireDatabaseReady, vehicleMediaRoutes);
-  app.use("/api/vehicles", requireDatabaseReady, vehicleRoutes);
-  app.use("/api/admin", requireDatabaseReady, adminAuthRoutes);
+  app.use("/api/vehicles", vehicleRoutes);
+  app.use("/api/admin", adminAuthRoutes);
   app.use(
     "/api/admin/protected",
-    requireDatabaseReady,
     hydrateAdminRequest,
     adminProtectedRoutes
   );
   app.use(
     "/api/admin/profile",
-    requireDatabaseReady,
     hydrateAdminRequest,
     adminProfileRoutes
   );
   app.use(
     "/api/admin/vehicles",
-    requireDatabaseReady,
     hydrateAdminRequest,
     adminVehicleRoutes
   );
   app.use(
     "/api/admin/reservations",
-    requireDatabaseReady,
     hydrateAdminRequest,
     adminReservationRoutes
   );
