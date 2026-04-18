@@ -10,7 +10,7 @@ let ensureDatabaseExistsPromise = null;
 let databaseExistsEnsured = false;
 
 function shouldSkipDatabaseProvisioning() {
-  return process.env.DB_SKIP_CREATE === "true" || Boolean(process.env.VERCEL);
+  return process.env.DB_SKIP_CREATE === "true";
 }
 
 function getGlobalRuntime() {
